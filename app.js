@@ -5,10 +5,13 @@
    // Create an instance of Express
    var app = express();
    // Start the app
-   http.createServer(app).listen(5000, function() {
+   app.set('view engine', 'jade');
+   app.set('views','./views');
+
+   http.createServer(app).listen(3000, function() {
      console.log('Express app started');
    });
    // A route for the home page
    app.get('/',function(req,res){
-      res.send('Hi');
+      res.render('index', {title: 'hell yeah'});
    });
